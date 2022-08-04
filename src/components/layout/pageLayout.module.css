@@ -1,0 +1,79 @@
+.nav {
+  background-color: #1a1a1a;
+  color: white;
+  text-transform: capitalize;
+}
+.nav .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+.nav .container .brand {
+  font-size: calc(0.8rem + 0.5vw);
+}
+.nav .container .menuIcon {
+  display: none;
+  cursor: pointer;
+}
+.nav .container .menuTop {
+  display: none;
+}
+.nav .container .menus {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+}
+.nav .container .menus .li {
+  padding: 10px 0;
+}
+.nav .container .menus .menu {
+  color: white;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+  .nav .container .menuIcon {
+    display: block;
+  }
+  .nav .container .minNav {
+    left: -100%;
+    transition: 0.3s linear;
+  }
+  .nav .container .minNav_s {
+    left: 0%;
+    transition: 0.3s linear;
+  }
+  .nav .container .menus {
+    display: block;
+    position: fixed;
+    top: 0;
+    background-color: #1a1a1a;
+    height: 100%;
+    width: 300px;
+  }
+  .nav .container .menus .menuTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-size: calc(1rem + 0.8vw) !important;
+  }
+  .nav .container .menus .menuTop a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+  }
+  .nav .container .menus .menuTop .close {
+    cursor: pointer;
+  }
+  .nav .container .menus .li {
+    padding: 10px 15px;
+  }
+  .nav .container .menus .li:hover {
+    background-color: black;
+  }
+}/*# sourceMappingURL=pageLayout.module.css.map */
