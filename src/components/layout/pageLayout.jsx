@@ -17,6 +17,14 @@ function PageLayout({ children }) {
       path: "/portfolio",
       page: "portfolio",
     },
+    {
+      path:'/todo',
+      page:'todo'
+    },
+    {
+      path:'/dynamic_form',
+      page:'Form'
+    }
   ];
 
 
@@ -56,7 +64,7 @@ function PageLayout({ children }) {
       </nav>
       <main>{children}</main>
       <PopupBg  />
-      <footer>
+      <footer className={classes.footer}>
         <h2>this is footer</h2>
       </footer>
     </>

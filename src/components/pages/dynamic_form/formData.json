@@ -1,0 +1,30 @@
+{
+  "name": {
+    "type": "text",
+    "label": "what is your name?",
+    "placeholder": "jhon doe"
+  },
+  "email": {
+    "type": "email",
+    "label": "what is your email?",
+    "placeholder": "jhon@example.com"
+  },
+  "password": {
+    "type": "password",
+    "label": "what is your password?",
+    "placeholder": "*******"
+  },
+  "confirmPassword": {
+    "type": "password",
+    "label": "confirm your password",
+    "placeholder": "*******"
+  },
+  "birthdate":{
+    "type":"text",
+    "label":"what is your birthdate?"
+  },
+  "age":{
+    "type":"number",
+    "label":"what is your age?"
+  }
+}

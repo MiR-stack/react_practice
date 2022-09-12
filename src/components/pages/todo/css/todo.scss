@@ -1,0 +1,150 @@
+.todo {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 0;
+  min-height: 75vh;
+  h2{
+    font-size:calc(1.5rem + 1.2vw)
+  }
+  .filter{
+    width: 600px;
+    margin:0 auto;
+    display: flex;
+    justify-content: right;
+    select{
+      padding:5px;
+      border-radius:5px;
+      text-transform: capitalize;
+    }
+  }
+  .container {
+    width: 600px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 10px;
+
+    .input-group {
+      border: 1px solid black;
+      display: flex;
+      border-radius: 10px;
+
+      input,
+      button {
+        border: none;
+        background: none;
+        outline: none;
+        padding: 10px 15px;
+      }
+      input {
+        width: 80%;
+      }
+      button {
+        width: 20%;
+        cursor: pointer;
+        background-color: #00796b;
+        color: white;
+        text-transform: capitalize;
+        border-radius: 0 9px 9px 0;
+      }
+    }
+
+    .showTasks {
+      margin-top: 20px;
+      text-align: left;
+      .taskItem {
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        margin-bottom: 10px;
+        .date {
+          width: 80px;
+        }
+        .main {
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 10px;
+          overflow: hidden;
+          .edit {
+            width: 100%;
+            input,
+            .editBtn {
+              padding: 5px;
+            }
+          }
+          .task {
+            width: 80%;
+            overflow: hidden;
+          }
+          .icons {
+            display: none;
+            width: 20%;
+            i {
+              cursor: pointer;
+              margin-left: 10px;
+            }
+          }
+          &:hover .icons {
+            display: flex;
+          }
+        }
+        .status {
+          width: 20%;
+          padding: 5px 10px;
+          border-radius: 10px;
+          text-transform: capitalize;
+          cursor: pointer;
+          border: none;
+        }
+
+        .Todo {
+          background-color: #ec407a;
+          font-weight: 400;
+          color: #fce4ec;
+        }
+        .running {
+          background-color: #689f38;
+          font-weight: 700;
+          color: #f1f8e9;
+        }
+        .completed {
+          background-color: #009688;
+          font-weight: 500;
+          color: #fce4ec;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .todo .filter{
+    width: 95%;
+  }
+  .todo .container {
+    width: 95%;
+
+    .showTasks .taskItem {
+      padding: unset;
+      .date {
+        width: unset;
+      }
+      .main {
+        .task,
+        .icons {
+          width: unset;
+        }
+      }
+      .main .icons {
+        display: flex;
+      }
+      .status {
+        width: unset;
+      }
+    }
+  }
+}

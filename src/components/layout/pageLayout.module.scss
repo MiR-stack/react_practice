@@ -32,9 +32,20 @@
       .menu {
         color: white;
         text-decoration: none;
+        width: 100%;
       }
     }
   }
+}
+
+.footer{
+  height: 200px ;
+  display:flex;
+  align-items: center;
+  background:#1a1a1a;
+  justify-content:center;
+  color:white;
+  text-transform: capitalize;
 }
 
 @media screen and (max-width: 500px) {

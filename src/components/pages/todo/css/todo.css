@@ -1,0 +1,143 @@
+.todo {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 0;
+  min-height: 75vh;
+}
+.todo h2 {
+  font-size: calc(1.5rem + 1.2vw);
+}
+.todo .filter {
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: right;
+}
+.todo .filter select {
+  padding: 5px;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+.todo .container {
+  width: 600px;
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+.todo .container .input-group {
+  border: 1px solid black;
+  display: flex;
+  border-radius: 10px;
+}
+.todo .container .input-group input,
+.todo .container .input-group button {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 10px 15px;
+}
+.todo .container .input-group input {
+  width: 80%;
+}
+.todo .container .input-group button {
+  width: 20%;
+  cursor: pointer;
+  background-color: #00796b;
+  color: white;
+  text-transform: capitalize;
+  border-radius: 0 9px 9px 0;
+}
+.todo .container .showTasks {
+  margin-top: 20px;
+  text-align: left;
+}
+.todo .container .showTasks .taskItem {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  margin-bottom: 10px;
+}
+.todo .container .showTasks .taskItem .date {
+  width: 80px;
+}
+.todo .container .showTasks .taskItem .main {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  overflow: hidden;
+}
+.todo .container .showTasks .taskItem .main .edit {
+  width: 100%;
+}
+.todo .container .showTasks .taskItem .main .edit input,
+.todo .container .showTasks .taskItem .main .edit .editBtn {
+  padding: 5px;
+}
+.todo .container .showTasks .taskItem .main .task {
+  width: 80%;
+  overflow: hidden;
+}
+.todo .container .showTasks .taskItem .main .icons {
+  display: none;
+  width: 20%;
+}
+.todo .container .showTasks .taskItem .main .icons i {
+  cursor: pointer;
+  margin-left: 10px;
+}
+.todo .container .showTasks .taskItem .main:hover .icons {
+  display: flex;
+}
+.todo .container .showTasks .taskItem .status {
+  width: 20%;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  cursor: pointer;
+  border: none;
+}
+.todo .container .showTasks .taskItem .Todo {
+  background-color: #ec407a;
+  font-weight: 400;
+  color: #fce4ec;
+}
+.todo .container .showTasks .taskItem .running {
+  background-color: #689f38;
+  font-weight: 700;
+  color: #f1f8e9;
+}
+.todo .container .showTasks .taskItem .completed {
+  background-color: #009688;
+  font-weight: 500;
+  color: #fce4ec;
+}
+
+@media only screen and (max-width: 600px) {
+  .todo .filter {
+    width: 95%;
+  }
+  .todo .container {
+    width: 95%;
+  }
+  .todo .container .showTasks .taskItem {
+    padding: unset;
+  }
+  .todo .container .showTasks .taskItem .date {
+    width: unset;
+  }
+  .todo .container .showTasks .taskItem .main .task,
+.todo .container .showTasks .taskItem .main .icons {
+    width: unset;
+  }
+  .todo .container .showTasks .taskItem .main .icons {
+    display: flex;
+  }
+  .todo .container .showTasks .taskItem .status {
+    width: unset;
+  }
+}/*# sourceMappingURL=todo.css.map */
