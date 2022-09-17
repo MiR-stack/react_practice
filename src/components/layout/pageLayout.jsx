@@ -14,24 +14,35 @@ function PageLayout({ children }) {
       page: "about",
     },
     {
-      path: "/portfolio",
-      page: "portfolio",
+      page: "pages",
+      pages: [
+        {
+          path: "/todo",
+          page: "todo",
+        },
+        {
+          path: "/calculator",
+          page: "calculator",
+        },
+        {
+          path: "/portfolio",
+          page: "portfolio",
+        },
+        {
+          path: "/form",
+          page: "dynamic form",
+        },
+      ],
     },
     {
-      path:'/todo',
-      page:'todo'
+      path: "/contact",
+      page: "contact us",
     },
-    {
-      path:'/dynamic_form',
-      page:'Form'
-    }
   ];
 
+  const dropdown = ["pages"];
 
-  const [minNav,setMinNav] = useState(false)
-
-
-
+  const [minNav, setMinNav] = useState(false);
 
   return (
     <>
@@ -40,30 +51,53 @@ function PageLayout({ children }) {
           <div className={classes.brand}>
             <h1>unicorn</h1>
           </div>
-          <div className={classes.menuIcon} onClick={()=>setMinNav(!minNav)}>
+          <div className={classes.menuIcon} onClick={() => setMinNav(!minNav)}>
             {" "}
             <i className="fa-solid fa-bars"></i>
           </div>
-          <ul className={`${classes.menus} ${minNav?classes.minNav_s:classes.minNav}`}>
+          <ul
+            className={`${classes.menus} ${
+              minNav ? classes.minNav_s : classes.minNav
+            }`}
+          >
             <li className={classes.menuTop}>
-              <Link to={"/"}>
+              <Link to={"/"}> unicorn</Link>
+              <div className={classes.close} onClick={() => setMinNav(false)}>
                 {" "}
-                unicorn
-              </Link>
-              <div className={classes.close } onClick={()=>setMinNav(false)} > <i className="fa-solid fa-xmark"></i></div>
+                <i className="fa-solid fa-xmark"></i>
+              </div>
             </li>
-            {menus.map((menu) => (
-              <li className={classes.li} key={menu.page}>
-                <Link className={classes.menu} to={menu.path}>
-                  {menu.page}{" "}
-                </Link>
-              </li>
-            ))}
+            {menus.map((menu) => {
+              if (dropdown.includes(menu.page)) {
+                return (
+                  <li key={menu.page} className={classes.dropdownContainer}>
+                    {menu.page}
+                    <div className={classes.dropdownMenu}>
+                      {menu.pages.map((page) => (
+                        <div className={classes.dropdownItem}>
+                          <Link to={page.path} key={page.page}>
+                            {page.page}{" "}
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  </li>
+                );
+              } else {
+                return (
+                  <li className={classes.li} key={menu.page}>
+                    <Link className={classes.menu} to={menu.path}>
+                      {menu.page}{" "}
+                    </Link>
+                  </li>
+                );
+              }
+            })}
           </ul>
         </div>
       </nav>
       <main>{children}</main>
-      <PopupBg  />
+      <PopupBg />
       <footer className={classes.footer}>
         <h2>this is footer</h2>
       </footer>

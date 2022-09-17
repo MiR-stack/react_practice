@@ -5,6 +5,7 @@ import About from "./components/pages/about";
 import Portfolio from "./components/pages/portfolio";
 import Todo from "./components/pages/todo/todo";
 import DynamicForm from "./components/pages/dynamic_form/dynamic_form";
+import Calculator from "./components/pages/calculator/calculator";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/todo" element={<Todo />} />
         <Route path="/dynamic_form" element={<DynamicForm />} />
+        <Route path="/calculator" element={<Calculator />} />
       </Routes>
     </Router>
   );

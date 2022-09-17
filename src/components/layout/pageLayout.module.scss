@@ -16,10 +16,10 @@
 
     .menuIcon {
       display: none;
-      cursor:pointer;
+      cursor: pointer;
     }
-    .menuTop{
-        display:none;
+    .menuTop {
+      display: none;
     }
     .menus {
       display: flex;
@@ -34,17 +34,50 @@
         text-decoration: none;
         width: 100%;
       }
+
+      .dropdownContainer {
+        position: relative;
+        top: 0;
+        padding: 10px 0;
+        cursor: pointer;
+        &:hover .dropdownMenu {
+          display: block;
+        }
+        .dropdownMenu {
+          position: absolute;
+          top: 100%;
+          left: -50Px;
+          background-color: #1a1a1a;
+          display: none;
+          min-width: 200px;
+          .dropdownItem {
+            padding: 10px;
+
+            a {
+              text-decoration: none;
+              color: white;
+              width: 100%;
+            }
+            &:hover {
+              background-color: black;
+              a {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
 
-.footer{
-  height: 200px ;
-  display:flex;
+.footer {
+  height: 200px;
+  display: flex;
   align-items: center;
-  background:#1a1a1a;
-  justify-content:center;
-  color:white;
+  background: #1a1a1a;
+  justify-content: center;
+  color: white;
   text-transform: capitalize;
 }
 
@@ -55,11 +88,11 @@
     }
     .minNav {
       left: -100%;
-      transition: .3s linear;
+      transition: 0.3s linear;
     }
     .minNav_s {
       left: 0%;
-      transition: .3s linear;
+      transition: 0.3s linear;
     }
     .menus {
       display: block;
@@ -79,6 +112,7 @@
           text-decoration: none;
           text-transform: uppercase;
           color: white;
+          width: 100%;
         }
         .close {
           cursor: pointer;
@@ -89,6 +123,16 @@
         padding: 10px 15px;
         &:hover {
           background-color: black;
+        }
+      }
+
+      .dropdownContainer {
+        position: unset;
+        padding: 10px 15px;
+        .dropdownMenu {
+          position: unset;
+          background-color: #222222;
+          border-radius: 10px;
         }
       }
     }
