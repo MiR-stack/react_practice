@@ -29,9 +29,13 @@ function PageLayout({ children }) {
           page: "portfolio",
         },
         {
-          path: "/form",
+          path: "/dynamic_form",
           page: "dynamic form",
         },
+        {
+          path:'/contactlist',
+          page:'Contact list'
+        }
       ],
     },
     {
@@ -67,14 +71,14 @@ function PageLayout({ children }) {
                 <i className="fa-solid fa-xmark"></i>
               </div>
             </li>
-            {menus.map((menu) => {
+            {menus.map((menu,index) => {
               if (dropdown.includes(menu.page)) {
                 return (
-                  <li key={menu.page} className={classes.dropdownContainer}>
+                  <li key={index} className={classes.dropdownContainer}>
                     {menu.page}
                     <div className={classes.dropdownMenu}>
                       {menu.pages.map((page) => (
-                        <div className={classes.dropdownItem}>
+                        <div key={page.path} className={classes.dropdownItem}>
                           <Link to={page.path} key={page.page}>
                             {page.page}{" "}
                           </Link>
@@ -85,7 +89,7 @@ function PageLayout({ children }) {
                 );
               } else {
                 return (
-                  <li className={classes.li} key={menu.page}>
+                  <li className={classes.li} key={index}>
                     <Link className={classes.menu} to={menu.path}>
                       {menu.page}{" "}
                     </Link>
