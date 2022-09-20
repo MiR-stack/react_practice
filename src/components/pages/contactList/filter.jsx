@@ -46,7 +46,7 @@ export default function Filter({ contacts, handleFilter }) {
 
   useEffect(() => {
     handleFilter(filteredContacts);
-  }, [filter]);
+  }, [contacts,filter]);
 
   return (
     <Container>

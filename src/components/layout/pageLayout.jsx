@@ -39,12 +39,21 @@ function PageLayout({ children }) {
       ],
     },
     {
+      page:'blocks',
+      pages:[
+        {
+          path:'/useEffect',
+          page:'useEffect hook'
+        }
+      ]
+    },
+    {
       path: "/contact",
       page: "contact us",
     },
   ];
 
-  const dropdown = ["pages"];
+  const dropdown = ["pages",'blocks'];
 
   const [minNav, setMinNav] = useState(false);
 

@@ -40,10 +40,6 @@ export default function ContactList() {
   const handleFilter = (contacts) => {
     setFilterdContacts(contacts);
   };
-  useEffect(() => {
-    setFilterdContacts(contacts);
-  }, [contacts]);
-  //   console.log(filteredContacts);
 
   return (
     <Container>
