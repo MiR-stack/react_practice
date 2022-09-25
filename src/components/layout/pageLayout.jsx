@@ -35,6 +35,10 @@ function PageLayout({ children }) {
         {
           path:'/contactlist',
           page:'Contact list'
+        },
+        {
+          path:'/fetchData',
+          page:'fetch data'
         }
       ],
     },
@@ -42,7 +46,7 @@ function PageLayout({ children }) {
       page:'blocks',
       pages:[
         {
-          path:'/useEffect',
+          path:'/countApp',
           page:'useEffect hook'
         }
       ]
