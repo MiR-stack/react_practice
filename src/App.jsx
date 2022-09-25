@@ -9,6 +9,7 @@ import Calculator from "./components/pages/calculator/calculator";
 import ContactList from "./components/pages/contactList/contactList";
 import CountApp from "./components/blocks/countApp";
 import FetchData from "./components/pages/fetch-data/index";
+import CustomHook from "./components/pages/Custom_hook/custom_hook";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/contactlist" element={<ContactList />} />
         <Route path="/countApp" element={<CountApp />} />
         <Route path="/fetchData" element={<FetchData />} />
+        <Route path="/customhook" element={<CustomHook />} />
       </Routes>
     </Router>
   );

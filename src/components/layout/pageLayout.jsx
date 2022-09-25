@@ -39,6 +39,10 @@ function PageLayout({ children }) {
         {
           path:'/fetchData',
           page:'fetch data'
+        },
+        {
+          path:'/customhook',
+          page:'Custom hook'
         }
       ],
     },
