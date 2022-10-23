@@ -1,61 +1,92 @@
-import { useState } from "react";
+import useForm from "../../../hooks/useForm";
 import PageLayout from "../../layout/pageLayout";
-import formItems from "./formData.json";
+import formData from "./formData.json";
 
-import { Button, Container, Form, FormItem, Header,Input } from "./form-componets";
+import {
+  Button,
+  Container,
+  Error,
+  Form,
+  FormItem,
+  Header,
+  Input,
+} from "./form-componets";
 
 export default function DynamicForm() {
-  /**
-   *
-   * @param {Object} obj
-   * @returns
-   */
-  const ObjectToArray = (obj) => {
-    return Object.keys(obj).map((key) => ({ name: key, ...formItems[key] }));
-  };
+  function ObjectToArray() {
+    return Object.keys(formData).reduce((acc, cur) => {
+      acc.push({ name: cur, ...formData[cur] });
 
-  let obj = {};
-
-  for (let key in formItems) {
-    obj[key] = "";
+      return acc;
+    }, []);
   }
 
-  const [user, setUser] = useState(obj);
+  const init = ObjectToArray().reduce((acc, cur) => {
+    const name = cur.name;
+    acc[name] = cur.value || "";
 
-  function handleChange(e) {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    return acc;
+  }, {});
+
+  function validate(values) {
+    return Object.keys(values).reduce((acc, curr) => {
+      if (!values[curr] && formData[curr].error) {
+        acc[curr] = formData[curr].error;
+      }
+
+      return acc;
+    }, {});
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(user);
+  const {
+    formState,
+    handleChange,
+    handleFocuse,
+    handleBlur,
+    handleSubmit,
+    clear,
+  } = useForm(init, validate);
+
+  function submit(values) {
+    console.log(values);
   }
 
   return (
     <PageLayout>
       <Container>
         <Header> dynamic form</Header>
-        <Form onSubmit={handleSubmit}>
-          {ObjectToArray(formItems).map((formItem) => (
+        <Form
+          onSubmit={(e) => {
+            handleSubmit(e, submit);
+          }}
+        >
+          {ObjectToArray().map((formItem) => (
             <FormItem key={formItem.name}>
               <label htmlFor={formItem.name}>{formItem.label}</label>
-              <Input
-                type={formItem.type}
-                placeholder={formItem.placeholder}
-                name={formItem.name}
-                id={formItem.name}
-                value={user[formItem.name]}
-                onChange={handleChange}
-              />
+              <div>
+                <Input
+                  type={formItem.type}
+                  placeholder={formItem.placeholder}
+                  name={formItem.name}
+                  id={formItem.name}
+                  value={formState[formItem.name].value}
+                  error={formState[formItem.name].error}
+                  onChange={handleChange}
+                  onFocus={handleFocuse}
+                  onBlur={handleBlur}
+                />
+                <Error error={formState[formItem.name].error}>
+                  {formState[formItem.name].error}{" "}
+                </Error>
+              </div>
             </FormItem>
           ))}
 
-          <Button onClick={()=>{console.log('button clicked')}}>submit</Button>
+          <Button type="submit">submit</Button>
+          <Button type="reset" onClick={clear}>
+            reset
+          </Button>
         </Form>
-
-        {/* <form onSubmit={handleSubmit}>
-          
-        </form> */}
       </Container>
     </PageLayout>
   );

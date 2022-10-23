@@ -14,46 +14,49 @@ const Header = styled.h2`
   font-size: calc(1rem + 1.2vw);
 `;
 
-const Form = styled.form.attrs((props) => {
-})`
+const Form = styled.form.attrs((props) => {})`
   margin: 20px 0;
-  width:500px;
+  width: 500px;
 
-  @media only screen and (max-width:600px){
-    width:95%;
+  @media only screen and (max-width: 600px) {
+    width: 95%;
   }
 `;
 
-const Button = styled.button.attrs(props => ({
-    onclick:props.click,
-    type:'submit'
+const Button = styled.button.attrs((props) => ({
+  onclick: props.click,
 }))`
-
-    border:none;
-    background:none;
-    padding:10px 15px;
-    border:2px solid black;
-    text-transform:uppercase;
-`
+  border: none;
+  background: none;
+  padding: 10px 15px;
+  border: 2px solid black;
+  text-transform: uppercase;
+`;
 
 const FormItem = styled.div`
-
-    display:flex;
-    align-items:right;
-    justify-content:center;
-    flex-direction:column;
-    gap:5px;
-    text-transform:capitalize;
-    margin:10px 0;
-`
+  display: flex;
+  align-items: right;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  text-transform: capitalize;
+  margin: 10px 0;
+`;
 
 const Input = styled.input`
+  width: 100%;
+  padding: 5px 10px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid ${(props) => (props.error ? "red" : "black")};
+`;
 
-    padding:5px 10px;
-    outline:none;
-    border-radius:5px;
+const Error = styled.p`
+  color: red;
+  font-size: small;
+  margin-top: 5px;
+  font-weight: 400;
+  display: ${(props) => (props.error ? "block" : "none")};
+`;
 
-`
-
-
-export { Container, Header, Form ,Button,FormItem,Input };
+export { Container, Header, Form, Button, FormItem, Input, Error };

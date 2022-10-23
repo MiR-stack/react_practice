@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import Filter from "./filter";
 import InputContact from "./InputContact";

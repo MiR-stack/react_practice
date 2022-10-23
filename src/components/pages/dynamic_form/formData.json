@@ -2,7 +2,8 @@
   "name": {
     "type": "text",
     "label": "what is your name?",
-    "placeholder": "jhon doe"
+    "placeholder": "jhon doe",
+    "error":"invalid name"
   },
   "email": {
     "type": "email",
@@ -20,11 +21,14 @@
     "placeholder": "*******"
   },
   "birthdate":{
-    "type":"text",
+    "type":"date",
     "label":"what is your birthdate?"
   },
   "age":{
     "type":"number",
-    "label":"what is your age?"
+    "label":"what is your age?",
+    "placeholder":"18",
+    "error":"invalid age"
+
   }
 }
