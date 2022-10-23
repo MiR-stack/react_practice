@@ -14,7 +14,12 @@ function useForm(init, validate) {
     const { name, value } = e.target;
 
     const oldState = deepClone(state);
-    oldState[name] = { ...oldState[name], value };
+
+    if (typeof oldState[name].value === "boolean") {
+      oldState[name].value = !oldState[name].value;
+    } else {
+      oldState[name] = { ...oldState[name], value };
+    }
 
     const { error, hasError } = getError();
 
@@ -69,7 +74,7 @@ function useForm(init, validate) {
 
       setState(oldState);
     } else {
-      cb(values);
+      cb(values, error);
       clear();
     }
   }

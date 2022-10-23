@@ -30,5 +30,31 @@
     "placeholder":"18",
     "error":"invalid age"
 
+  },
+  "country":{
+    "type":"select",
+    "error":"please select one",
+    "options":{
+      "":"select one",
+      "bangladesh":"bangla",
+      "india":"india"
+    }
+  },
+  "terms":{
+    "type":"checkbox",
+    "value":false,
+    "label":"i agree all terms and condition",
+    "error":"accept please"
+  },
+  "terms2":{
+    "type":"checkbox",
+    "value":false,
+    "label":"i agree all terms and condition2",
+    "error":"accept please"
+  },
+  "file":{
+    "type":"file",
+    "label":"upload a file",
+    "error":"file is required"
   }
 }
